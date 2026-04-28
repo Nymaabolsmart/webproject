@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>iPhone Calculator</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black flex justify-center items-center h-screen">
+<div class="w-72">
+<div id="display" class="text-white text-5xl text-right p-4"></div>
+<div class="grid grid-cols-4 gap-3 text-xl">
+<button onclick="clear()" class="bg-gray-400 p-4 rounded-full">C</button>
+<button onclick="plusMinus()" class="bg-gray-400 p-4 rounded-full">±</button>
+<button onclick="percent()" class="bg-gray-400 p-4 rounded-full">%</button>
+<button onclick="op('/')" class="bg-orange-500 p-4 rounded-full">÷</button>
+<button onclick="num('7')" class="bg-gray-700 p-4 rounded-full text-white">7</button>
+<button onclick="num('8')" class="bg-gray-700 p-4 rounded-full text-white">8</button>
+<button onclick="num('9')" class="bg-gray-700 p-4 rounded-full text-white">9</button>
+<button onclick="op('*')" class="bg-orange-500 p-4 rounded-full">×</button>
+<button onclick="num('4')" class="bg-gray-700 p-4 rounded-full text-white">4</button>
+<button onclick="num('5')" class="bg-gray-700 p-4 rounded-full text-white">5</button>
+<button onclick="num('6')" class="bg-gray-700 p-4 rounded-full text-white">6</button>
+<button onclick="op('-')" class="bg-orange-500 p-4 rounded-full">-</button>
+<button onclick="num('1')" class="bg-gray-700 p-4 rounded-full text-white">1</button>
+<button onclick="num('2')" class="bg-gray-700 p-4 rounded-full text-white">2</button>
+<button onclick="num('3')" class="bg-gray-700 p-4 rounded-full text-white">3</button>
+<button onclick="op('+')" class="bg-orange-500 p-4 rounded-full">+</button>
+<button onclick="num('0')" class="bg-gray-700 p-4 rounded-full text-white col-span-2">0</button>
+<button onclick="num('.')" class="bg-gray-700 p-4 rounded-full text-white">.</button>
+<button onclick="equal()" class="bg-orange-500 p-4 rounded-full">=</button>
+</div>
+</div>
+<script>
+let exp = ""
+function show(){
+  document.getElementById("display").innerText = exp || "0"
+}
+function num(n){
+  exp += n
+  show()
+}
+function op(o){
+  exp += " " + o + " "
+  show()
+}
+function equal(){
+  try{
+    exp = eval(exp).toString()
+    show()
+  }catch{
+    exp = ""
+    show()
+  }
+}
+function clear(){
+  exp = ""
+  show()
+}
+</script>
+</body>
+</html>

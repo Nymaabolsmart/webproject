@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="onceBtn">Click Once</button>
+<p id="onceOutput"></p>
+
+<script>
+const onceBtn = document.getElementById("onceBtn");
+const onceOutput = document.getElementById("onceOutput");
+function handleClick(){
+  onceOutput.innerText = "Button дарлаа! (function устсан)";
+  onceBtn.removeEventListener("click", handleClick);
+}
+onceBtn.addEventListener("click", handleClick);
+</script>
+</body>
+</html>

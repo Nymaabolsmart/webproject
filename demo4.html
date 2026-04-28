@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+  <input type="text" id="formInput" placeholder="Type name">
+  <button type="submit">Submit</button>
+</form>
+<p id="formOutput"></p>
+
+<script>
+const myForm = document.getElementById("myForm");
+const formOutput = document.getElementById("formOutput");
+myForm.addEventListener("submit", function(e){
+  e.preventDefault(); // page reload зогсоох
+  formOutput.innerText = "Form submitted: " + document.getElementById("formInput").value;
+});
+</script>
+</body>
+</html>

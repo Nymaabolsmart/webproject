@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="add" type="text">
+    <button class="btn1">add</button>
+    <ul class="ul">
+
+    </ul>
+    <script>
+        const btn1 = document.querySelector(".btn1")
+        const add = document.querySelector(".add")
+        const ul = document.querySelector(".ul")
+        btn1.addEventListener("click", () => {
+           let li = document.createElement("li")
+           li.innerText = add.value + " "
+           let btnremove = document.createElement("button")
+           btnremove.innerText = "remove"
+           li.appendChild(btnremove)
+           btnremove.addEventListener("click", () => {
+                li.remove()
+            });
+           ul.appendChild(li)
+           document.body.appendChild(ul)
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <input type="text" placeholder="Type a key" id="key">
+  <p id="output"></p>
+  <script>
+    const key = document.getElementById("key");
+    const output = document.getElementById("output");
+    key.addEventListener("keydown", function(e){
+        output.innerText = "Text:" + e.key;
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</style>
+</head>
+<body>
+<div class="max-w-6xl mx-auto mt-6 bg-white p-6 rounded shadow">
+  <h1 class="text-3xl font-bold mb-4">Product Add System</h1>
+  <input class="add border p-2 rounded-lg mb-2" placeholder="Name" type="text">
+  <input class="add border p-2 rounded-lg mb-2" placeholder="Price" type="text">
+  <input class="add border p-2 rounded-lg mb-4" placeholder="Description" type="text">
+  <button id="btn1" class="bg-blue-500 text-white rounded-lg hover:bg-blue-600 px-4 py-2 mb-4">Add</button>
+  <div class="ul grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  </div>
+</div>
+<script>
+  const btn1 = document.querySelector("#btn1");
+  const add = document.querySelectorAll(".add");
+  const ul = document.querySelector(".ul");
+  btn1.addEventListener("click", () => {
+    const name = add[0].value.trim();
+    const price = add[1].value.trim();
+    const desc = add[2].value.trim();
+    let li = document.createElement("div");
+    li.className = "p-3 bg-gray-50 rounded ";
+    li.innerHTML = `${name}  $${price}  ${desc}`;
+    ul.appendChild(li);
+    add[0].value = "";
+    add[1].value = "";
+    add[2].value = "";
+    add[0].focus();
+  });
+</script>
+</body>
+</html>

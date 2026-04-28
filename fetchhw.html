@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <ul id="userList" class="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+    <script>
+        async function loadUsers() {
+            const list = document.getElementById("userList")
+            list.innerText = "Loading..."
+            const rest = await fetch("https://jsonplaceholder.typicode.com/albums")
+            const data = await rest.json()
+            list.innerText = "";
+            data.map(user =>{
+                const li = document.createElement("li")
+                li.className = "p-4 bg-white rounded shadow"
+                li.innerHTML = `
+                <p class="font-bold">${user.name}</p>
+                <p class="text-gray-400">${user.email}</p>
+                <p>${user.address.city}</p>
+                `;
+                list.appendChild(li);
+            });
+            }
+        loadUsers();
+    </script>
+</body>
+</html>

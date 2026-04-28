@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black flex justify-center items-center h-screen">
+<div class="bg-black p-4 rounded-3xl w-72">
+  <input id="display" type="text" value="0" readonly class="w-full text-white text-right text-4xl mb-5 bg-black outline-none">
+  <div class="grid grid-cols-4 gap-3">
+    <button onclick="clearAll()" class="bg-gray-400 p-3 rounded-full">AC</button>
+    <button onclick="percent()" class="bg-gray-400 p-3 rounded-full">%</button>
+    <button onclick="chooseOp('divide')" class="bg-orange-500 text-white p-3 rounded-full">÷</button>
+    <button onclick="chooseOp('multiply')" class="bg-orange-500 text-white p-3 rounded-full">×</button>
+    <button onclick="addNum(7)" class="bg-gray-700 text-white p-3 rounded-full">7</button>
+    <button onclick="addNum(8)" class="bg-gray-700 text-white p-3 rounded-full">8</button>
+    <button onclick="addNum(9)" class="bg-gray-700 text-white p-3 rounded-full">9</button>
+    <button onclick="chooseOp('subtract')" class="bg-orange-500 text-white p-3 rounded-full">−</button>
+    <button onclick="addNum(4)" class="bg-gray-700 text-white p-3 rounded-full">4</button>
+    <button onclick="addNum(5)" class="bg-gray-700 text-white p-3 rounded-full">5</button>
+    <button onclick="addNum(6)" class="bg-gray-700 text-white p-3 rounded-full">6</button>
+    <button onclick="chooseOp('add')" class="bg-orange-500 text-white p-3 rounded-full">+</button>
+    <button onclick="addNum(1)" class="bg-gray-700 text-white p-3 rounded-full">1</button>
+    <button onclick="addNum(2)" class="bg-gray-700 text-white p-3 rounded-full">2</button>
+    <button onclick="addNum(3)" class="bg-gray-700 text-white p-3 rounded-full">3</button>
+    <button onclick="equal()" class="bg-orange-500 text-white p-3 rounded-full">=</button>
+    <button onclick="addNum(0)" class="col-span-4 bg-gray-700 text-white p-3 rounded-full">0</button>
+  </div>
+</div>
+<script>
+let current = "0";
+let firstNumber = "";
+let operation = "";
+function show(){
+  document.getElementById("display").value = current;
+}
+function addNum(n){
+  if(current === "0"){
+    current = n.toString();
+  } else {
+    current = current + n;
+  }
+  show();
+}
+function chooseOp(op){
+  firstNumber = current;
+  operation = op;
+  current = "0";
+  show();
+}
+function equal(){
+  let a = Number(firstNumber);
+  let b = Number(current);
+  let result = 0;
+  if(operation === "add") result = a + b;
+  if(operation === "subtract") result = a - b;
+  if(operation === "multiply") result = a * b;
+  if(operation === "divide") result = a / b;
+  current = result.toString();
+  show();
+}
+function percent(){
+  let a = Number(firstNumber);
+  let b = Number(current);
+  if(firstNumber !== "" && current !== ""){
+    current = (a % b).toString();
+    show();
+  }
+}
+
+function clearAll(){
+  current = "0";
+  firstNumber = "";
+  operation = "";
+  show();
+}
+
+show();
+</script>
+
+</body>
+</html>

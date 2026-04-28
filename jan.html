@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="w-full h-full flex bg-black align-center justify-center flex-col">
+    <div id="display" class="text-white text-5xl bg-white text-right p-4"></div>
+    <div class="w-[50%] h-[55%] grid grid-cols-4 bg-yellow-400">
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 1</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 2</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 3</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="add()"> +</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 4</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 5</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 6</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="minus()"> -</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 7</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 8</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 9</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="multiply()">*</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 0</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 2</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="a(1)"> 3</button>
+        <button class="rounded-full aspect-1/1 bg-white text-black" onclick="add()"> +</button>
+        <button class="rounded-full aspect 1/4 bg-white text-black" onclick="calculate()"> =q</button>
+    </div>
+    <script>
+let exp = ""
+function show(){
+  document.getElementById("display").innerText = exp || "0"
+}
+function a(n){
+  exp += n
+  show()
+}
+function op(o){
+  exp += " " + o + " "
+  show()
+}
+function calculate(){
+  try{
+    exp = eval(exp).toString()
+    show()
+  }catch{
+    exp = ""
+    show()
+  }
+}
+function clear(){
+  exp = ""
+  show()
+}
+    </script>
+  </body>
+</html>
